@@ -1,4 +1,4 @@
-﻿// 
+﻿// Написать программу, которая из имеющегося массива строк формирует массив из строк, длина которых меньше либо равна 3 символа
 //
 Console.WriteLine("Введите текст : ");
 string a = Console.ReadLine()??"1"; 
@@ -6,8 +6,13 @@ Console.WriteLine("Введите текст : ");
 string b = Console.ReadLine()??"1"; 
 Console.WriteLine("Введите текст : ");
 string c = Console.ReadLine()??"1"; 
+
 string[]text=new string[]{ a,b,c };
-Console.Write($"[{string.Join(", ", text)}] ->");
+bool CheckEmptyLines( string z, string v, string s ){
+    if (z == string.Empty | v== string.Empty|s==string.Empty)
+        return true; 
+        return false;
+    }
  int FindTheNumberOfRowsInTheArrayWithALengthOfNoMoreThan3(string []text1 ){
     int resalt=0;
     for(var i=0;i< text1.Length;i++){
@@ -33,5 +38,6 @@ string[] FillANewArrayWithStringsNoLongerThan3 (int num,string[]text2 ){
         }
 
 } return text3;}
-string[] dh= FillANewArrayWithStringsNoLongerThan3 (res,text);
-Console.Write($"[{string.Join(", ", dh)}]");
+Console.Write(CheckEmptyLines(a,b,c)? $"Имеются пустые строки ->" : $"[{string.Join(", ", text)}] ->");
+string[] text2= FillANewArrayWithStringsNoLongerThan3 (res,text);
+Console.Write(CheckEmptyLines(a,b,c)? $"Повторите ввод" : $"[{string.Join(", ", text2)}]");
